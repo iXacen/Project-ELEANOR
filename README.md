@@ -1,4 +1,4 @@
-# 🌿 ELEANOR Akıllı Sera Projesi
+# 🌿 ELEANOR Gelecekte Tarım
 
 **ELEANOR**, güneş enerjili, yapay zekâ destekli ve uzaktan yönetilebilen bir akıllı sera sistemidir. Bu proje, sürdürülebilir tarımı desteklemek, otomatikleştirilmiş tarım teknolojilerini geliştirmek ve verimliliği artırmak amacıyla tasarlanmıştır.
 
