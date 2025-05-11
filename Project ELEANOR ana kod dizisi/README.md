@@ -1,14 +1,14 @@
+# ELEANOR Sera Projesi
 
-# ELEANOR Greenhouse Project
+Bu proje, enerji verimli bileşenler, akıllı sensörler ve otomatik kontrol sistemleriyle **tam otomatik bir sera** inşa etmeyi amaçlamaktadır.
 
-This project aims to build an autonomous greenhouse with energy-efficient components, smart sensors, and automatic control systems for plant growth.
+## Özellikler:
+- **Güneş paneli destekli sistem** ve güneşi takip eden **servo motorlar**
+- **Otomatik fanlar, pompalar ve besin yönetim sistemi**
+- **Akü durumu izleme ile enerji yönetimi**
+- **Mobil ve masaüstü kontrol uygulaması**
 
-## Features:
-- Solar panel-powered system with servo motor for solar tracking
-- Automated fans, pumps, and nutrient systems
-- Energy management with battery monitoring
-- Mobile and desktop control application
-
-## Setup:
-1. Install required Python libraries: `pip install -r requirements.txt`
-2. Run the `main.py` script to start the greenhouse management system.
+## Kurulum:
+1. **Gerekli Python kütüphanelerini yükleyin:**  
+   ```bash
+   pip install -r requirements.txt
