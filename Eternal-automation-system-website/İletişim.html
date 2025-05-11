@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
+    <title>Eternal Automation System - İletişim</title>
+  </head>
+  <body>
+    <div id="overlay"></div>
+    <div id="mobile-menu" class="mobile-main-menu">
+      <ul>
+          <li><a href="index.html">ANASAYFA</a></li>
+          <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
+          <li><a href="Ürünlerimiz.html">ÜRÜNLERİMİZ</a></li>
+          <li><a href="İletişim.html">İLETİŞİM</a></li>
+      </ul>
+    </div>
+    <header class="main-header">
+      <div class="logo">
+        <a href="index.html">
+          <img src="img/logo.png" alt="SpaceX" />
+        </a>
+      </div>
+      <nav class="desktop-main-menu">
+        <ul>
+          <li><a href="index.html">ANASAYFA</a></li>
+          <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
+          <li><a href="Ürünlerimiz.html">ÜRÜNLERİMİZ</a></li>
+          <li><a href="İletişim.html">İLETİŞİM</a></li>
+        </ul>
+      </nav>
+    </header>
+
+        <!-- Hamburger Menu -->
+    <button id="menu-btn" class="hamburger" type="button">
+      <span class="hamburger-top"></span>
+      <span class="hamburger-middle"></span>
+      <span class="hamburger-bottom"></span>
+    </button>
+
+
+
+
+        <form action="https://formspree.io/f/xnnjeygd" method="POST" class="contact-form">
+                    <label>AŞŞAĞIDAKİ BİLGİLERİ DOLDURARAK BİZİMLE İLETİŞİME GEÇEBİLİRSİNİZ</label>
+                    <input type="text" name="ad" placeholder="Adınız" required>
+                    <input type="text" name="soyad" placeholder="Soyadınız" required>
+                    <input type="email" name="email" placeholder="E-Posta Adresiniz" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Lütfen geçerli bir e-posta adresi girin. (Örnek: kullanıcı@domain.com)">
+                    <input type="tel" name="telefon" placeholder="Telefon Numaranız" required pattern="[0-9\s]{10,15}" title="Lütfen geçerli bir telefon numarası girin (boşluklar dahil, 10-15 haneli)">
+                    <textarea id="message" name="message" required placeholder="Mesajınızı buraya yazın"></textarea>
+
+                    <button type="submit" class="submit-btn">Gönder</button>
+                    <p id="form-success-message" style="display: none; color: rgb(238, 243, 238); text-align: center; margin-top: 20px;">Mesajınız başarıyla gönderildi.</p>
+        </form>
+        
+
+
+
+
+    <footer>
+      <ul>
+        <li>Eternal Automation System &copy; 2025</li>
+        <li><a href="#">GitHub</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">YouTube</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">Linkedin</a></li>
+      </ul>
+    </footer>
+
+
+
+  <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector(".contact-form");
+    const successMessage = document.getElementById("form-success-message");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault(); // varsayılan form davranışını engelle
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: form.method,
+          body: formData,
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          form.reset(); // formu temizle
+          successMessage.style.display = "block"; // mesajı göster
+        } else {
+          alert("Mesaj gönderilirken bir hata oluştu. Lütfen tekrar deneyin.");
+        }
+      } catch (error) {
+        alert("Bir hata oluştu. Lütfen bağlantınızı kontrol edin ve tekrar deneyin.");
+      }
+    });
+  });
+</script>
+
+
+  </body>
+
+</html>
