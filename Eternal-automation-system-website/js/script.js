@@ -54,6 +54,4 @@ function countUp() {
   });
 }
 
-function reset() {
-  counters.forEach((counter) => (counter.innerHTML = '0'));
-}
+ 

@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;600&display=swap');
+
+body {
+  margin: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: 'Familjen Grotesk', sans-serif;
+}
+
+/* Header düzenleme */
+.main-header {
+  position: sticky; /* scroll ile birlikte kayar ama hep üstte kalır */
+  top: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* tam saydam */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* içerikleri ortalar */
+  gap: 5px; /* logo ile menü arası boşluk */
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+/* Header içindeki logo ve menü, hamburger div içine alarak ortala */
+.main-header .logo,
+.main-header nav,
+.main-header #menu-btn {
+  display: flex;
+  align-items: center;
+}
+
+/* Logo biraz küçült */
+.main-header .logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Navigasyon menüsü */
+.main-header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Linkler */
+.main-header nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+  font-size: 16px;
+  padding: 3px 3px;
+  transition: color 0.3s ease;
+}
+
+
+
+/* Hamburger butonu */
+#menu-btn {
+  cursor: pointer;
+  font-size: 24px;
+  color: #fff;
+  user-select: none;
+}
+
+/* Main içerik */
+main {
+  max-width: 1200px;
+  margin: 60px auto 60px auto; /* header yüksekliği kadar üst boşluk */
+  padding: 0 40px;
+}
+
+/* Footer */
+footer {
+  padding: 20px 40px;
+  background-color: rgba(0, 0, 0, 0.7); /* tam saydam */
+  text-align: center;
+  margin-top: 60px;
+  color: #fff;
+  font-family: 'Familjen Grotesk', sans-serif;
+  position: relative;
+  z-index: 500;
+}
+
+/* Paketler vs senin önceki kodların aynı kalabilir */
+
+
+.generally-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.generally-container h1 {
+  font-size: 42px;
+  margin-bottom: 40px;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.packages-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
+}
+
+.package-card {
+  background-color: #111;
+  border: 2px solid #333; /* default border */
+  border-radius: 20px;
+  padding: 30px;
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease-in-out;
+  text-align: left;
+}
+
+.package-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+.package-card h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.price {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #ffd700;
+}
+
+.package-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.package-card ul li {
+  position: relative;
+  padding-left: 30px;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.package-card ul li .checkmark {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: #4caf50; /* yeşil tik */
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.package-card button {
+  padding: 12px 24px;
+  border: none;
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Bronz Paket */
+.bronze button:hover {
+  background-color: #cd7f32; /* bronz rengi */
+  color: #fff;
+}
+
+/* Altın Paket */
+.gold button:hover {
+  background-color: #ffd700; /* altın sarısı */
+  color: #000;
+}
+
+/* Platin Paket */
+.platinum button:hover {
+  background-color: #e5e4e2; /* platinyum rengi */
+  color: #000;
+}
+
+
+/* Paket Renk Temaları */
+.bronze {
+  border-color: #cd7f32; /* Bronz */
+}
+
+.gold {
+  border-color: #ffd700; /* Altın */
+}
+
+.platinum {
+  border-color: #e5e4e2; /* Platinyum */
+}
+
+.custom-package {
+  background-color: #111;
+  border: 2px solid #38a863;
+  border-radius: 20px;
+  padding: 30px;
+  margin-top: 60px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: fadeInUp 0.8s ease-in-out;
+}
+
+.custom-package h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #fff;
+  text-align: center;
+}
+
+.options-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.options-grid label {
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.custom-package button {
+  padding: 12px 24px;
+  border: none;
+  background-color: #333;
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 30px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.custom-package button:hover {
+  background-color: #38a863;
+}
+.custom-package:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .packages-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+

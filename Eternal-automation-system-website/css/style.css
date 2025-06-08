@@ -50,6 +50,7 @@ ul {
   display: block;
   width: 100%;
   height: auto;
+  
 }
 
 /* Desktop Menu */
@@ -156,7 +157,6 @@ section {
 .section-f {
   background-image: url('../img/section-f.webp');
 }
-
 .btn {
   position: relative;
   display: inline-block;
@@ -234,7 +234,7 @@ footer ul li a:hover {
 /* Hamburger Menu */
 .hamburger {
   position: fixed;
-  top: 25px;
+  top: 35px;
   right: 20px;
   z-index: 10;
   cursor: pointer;
@@ -353,31 +353,6 @@ footer ul li a:hover {
 
 
 
-.section-animate {
-  animation: fadeIn 2s ease-in-out;
-}
-
-.section-inner-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  text-transform: uppercase;
-  text-align: center;
-  width: 80%;
-}
-
-.section-inner-center h3 {
-  font-size: 100px;
-  margin-bottom: 15px;
-  animation: fadeInUp 0.5s ease-in-out;
-}
-
-.section-inner-center p {
-  font-size: 20px;
-  animation: fadeInUp 0.5s ease-in-out 0.2s;
-  animation-fill-mode: both;
-}
 
 /* Stats */
 .stats {
@@ -499,6 +474,12 @@ footer ul li a:hover {
   animation-delay: 0.6s;
 }
 
+
+
+
+
+
+
 /* Animation */
 @keyframes fadeInUp {
   0% {
@@ -515,72 +496,149 @@ footer ul li a:hover {
 /* BENİM EKLEDİĞİM İLETİŞİM FORMU BÖLÜMÜ */
 
 
+
+
+
+
 /* BENİM EKLEDİĞİM hakkımızda BÖLÜMÜ */
 
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    .section-title {
+      text-align: center;
+    }
+    .about-section {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 4rem 2rem;
+    }
 
-.about-section {
-  position: relative;
-  background-color: #111;
-  padding: 100px 20px;
-  color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh; /* Tam ekran yüksekliği */
-  text-align: center;
-}
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
 
-.about-inner {
-  max-width: 800px;
-  margin: 0 auto;
-}
+    .section-title.loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
-.about-inner h2,
-.about-inner p,
-.about-inner .btn {
+    .card-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+    }
+
+    .info-card {
+      position: relative;
+      background: #222;
+      border-radius: 1.5rem;
+      padding: 2rem 2rem 3rem;
+      max-width: 320px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.05);
+      cursor: pointer;
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      text-align: center;
+      z-index: 1;
+
   opacity: 0;
-  animation: fadeInUp 0.5s ease-in-out forwards;
+  transform: translateY(60px);
+  transition: all 0.7s ease-out;
+    }
+
+    .info-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+/* Her biri için özel animasyon başlangıçları */
+.fade-up-slow {
+  transition-duration: 1.2s;
 }
 
-/* Animasyon gecikmeleri */
-.about-inner h2 {
-  font-size: 38px;
-  font-weight: 500; /* Daha ince başlık */
-  animation-delay: 0.2s;
+.fade-up-rotate-left {
+  transform: translateY(60px) rotate(-5deg);
 }
 
-.about-inner p:nth-of-type(1) {
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.8;
-  color: #ddd;
-  animation-delay: 0.4s;
+.fade-up-rotate-right {
+  transform: translateY(60px) rotate(5deg);
 }
 
-.about-inner p:nth-of-type(2) {
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 1.8;
-  color: #ddd;
-  animation-delay: 0.6s;
+.fade-up-scale {
+  transform: translateY(60px) scale(0.95);
 }
 
-.about-inner .btn {
-  margin-top: 30px;
-  animation-delay: 0.8s;
+.fade-up-float {
+  transform: translateY(80px);
+  transition-timing-function: ease-in-out;
 }
 
+
+    @keyframes cardFadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .corner-icon {
+      position: absolute;
+      width: 70px;
+      height: 70px;
+      opacity: 0.5;
+      filter: drop-shadow(0 0 8px rgba(255, 100, 100, 0.6)); /* Kırmızımsı parıltı */
+      mix-blend-mode: screen;
+      pointer-events: none;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+      color: #ff4d4d; /* Koyu pembe / kırmızı ton */
+      z-index: 0;
+    }
+
+
+    .top-left {
+      top: 0px;
+      left: 0px;
+      transform: rotate(-20deg);
+    }
+
+    .top-right {
+      top: 0px;
+      right: 0px;
+      transform: rotate(20deg);
+    }
+
+    .info-card:hover {
+      transform: scale(1.07);
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+    }
+
+    .info-card:hover .corner-icon {
+      opacity: 1;
+      transform: scale(1.2) rotate(0deg);
+    }
+
+    .info-card h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .info-card p {
+      font-size: 1rem;
+      position: relative;
+      z-index: 2;
+      line-height: 1.4;
+    }
 /* BENİM EKLEDİĞİM hakkımızda BÖLÜMÜ */
+
 
 
 

@@ -1,72 +1,113 @@
 <!DOCTYPE html>
 <html lang="tr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="css/style.css" />
-    <script src="js/script.js" defer></script>
-    <title>Eternal Automation System - Hakkımızda</title>
-  </head>
-  <body>
-    <div id="overlay"></div>
-    <div id="mobile-menu" class="mobile-main-menu">
-      <ul>
-          <li><a href="index.html">ANASAYFA</a></li>
-          <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
-          <li><a href="Ürünlerimiz.html">ÜRÜNLERİMİZ</a></li>
-          <li><a href="İletişim.html">İLETİŞİM</a></li>
-      </ul>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/script.js" defer></script>
+  <script src="https://code.iconify.design/2/2.2.1/iconify.min.js"></script>
+  <title>Eternal Automation System - Hakkımızda</title>
+</head>
+<body>
+  <div id="overlay"></div>
+  <div id="mobile-menu" class="mobile-main-menu">
+    <ul>
+      <li><a href="index.html">ANASAYFA</a></li>
+      <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
+      <li><a href="Ürünlerimiz.php">ÜRÜNLERİMİZ</a></li>
+      <li><a href="İletişim.html">İLETİŞİM</a></li>
+    </ul>
+  </div>
+  <header class="main-header">
+    <div class="logo">
+      <a href="index.html">
+        <img src="img/logo1.png" alt="Logo" />
+      </a>
     </div>
-    <header class="main-header">
-      <div class="logo">
-        <a href="index.html">
-          <img src="img/logo.png" alt="SpaceX" />
-        </a>
-      </div>
-      <nav class="desktop-main-menu">
-        <ul>
-          <li><a href="index.html">ANASAYFA</a></li>
-          <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
-          <li><a href="Ürünlerimiz.html">ÜRÜNLERİMİZ</a></li>
-          <li><a href="İletişim.html">İLETİŞİM</a></li>
-        </ul>
-      </nav>
-    </header>
-
-    <!-- Hamburger Menu -->
-    <button id="menu-btn" class="hamburger" type="button">
-      <span class="hamburger-top"></span>
-      <span class="hamburger-middle"></span>
-      <span class="hamburger-bottom"></span>
-    </button>
-
-      <section id="about" class="about-section">
-        <div class="about-inner">
-          <h2>Hakkımızda</h2>
-          <p>
-            Eternal Automation System olarak, otomatik sera sistemleri, anakart üretimi ve web yazılımı alanlarında
-            yenilikçi çözümler sunuyoruz. Müşterilerimize özel, akıllı ve sürdürülebilir teknolojiler geliştirmeyi
-            hedefliyoruz.
-          </p>
-          <p>
-            Uzman kadromuz ile birlikte, projelerinizi ileriye taşımak için buradayız. Verimlilik, estetik ve fonksiyonelliği
-            bir araya getiriyoruz.
-          </p>
-          <a href="İletişim.html" class="btn"><span>Bize Ulaşın</span><div class="hover"></div></a>
-        </div>
-      </section>
-
-
-    <footer>
+    <nav class="desktop-main-menu">
       <ul>
-        <li>Eternal Automation System &copy; 2025</li>
-        <li><a href="#">GitHub</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">YouTube</a></li>
-        <li><a href="#">Instagram</a></li>
-        <li><a href="#">Linkedin</a></li>
+        <li><a href="index.html">ANASAYFA</a></li>
+        <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
+        <li><a href="Ürünlerimiz.php">ÜRÜNLERİMİZ</a></li>
+        <li><a href="İletişim.html">İLETİŞİM</a></li>
       </ul>
-    </footer>
-  </body>
+    </nav>
+  </header>
+
+  <!-- Hamburger Menu -->
+  <button id="menu-btn" class="hamburger" type="button">
+    <span class="hamburger-top"></span>
+    <span class="hamburger-middle"></span>
+    <span class="hamburger-bottom"></span>
+  </button>
+
+  <!-- Hakkımızda Bölümü -->
+  <section id="about" class="about-section">
+    <h2 class="section-title" id="about-title">Hakkımızda</h2>
+
+<div class="card-container" id="about-cards">
+  <a href="Otomatikseraüretim.html" class="info-card fade-up-slow">
+    <span class="iconify corner-icon top-left" data-icon="lucide:thermometer"></span>
+    <span class="iconify corner-icon top-right" data-icon="lucide:cloud-rain"></span>
+    <h3>Akıllı Sera Sistemleri</h3>
+    <p>Modern tarımı destekleyen, uzaktan kontrol edilebilir otomasyon çözümleri.</p>
+  </a>
+
+  <a href="Anakartüretim.html" class="info-card fade-up-rotate-left">
+    <span class="iconify corner-icon top-left" data-icon="lucide:cpu"></span>
+    <span class="iconify corner-icon top-right" data-icon="lucide:hard-drive"></span>
+    <h3>Anakart Üretimi</h3>
+    <p>Yüksek kaliteli ve özel tasarlanmış anakart çözümleri ile üretim gücü.</p>
+  </a>
+
+  <a href="Websitetasarım.html" class="info-card fade-up-scale">
+    <span class="iconify corner-icon top-left" data-icon="lucide:code"></span>
+    <span class="iconify corner-icon top-right" data-icon="lucide:server"></span>
+    <h3>Web & Yazılım Geliştirme</h3>
+    <p>İhtiyacınıza özel, hızlı ve güvenli web tabanlı yazılım çözümleri sunuyoruz.</p>
+  </a>
+
+  <div class="info-card fade-up-rotate-right">
+    <span class="iconify corner-icon top-left" data-icon="lucide:users"></span>
+    <span class="iconify corner-icon top-right" data-icon="lucide:handshake"></span>
+    <h3>Takım Ruhu</h3>
+    <p>Alanında uzman bir ekiple çözüm odaklı ve yenilikçi yaklaşım.</p>
+  </div>
+
+  <div class="info-card fade-up-float">
+    <span class="iconify corner-icon top-left" data-icon="lucide:eye"></span>
+    <span class="iconify corner-icon top-right" data-icon="lucide:star"></span>
+    <h3>Vizyonumuz</h3>
+    <p>Teknolojiyle doğayı buluşturarak sürdürülebilir çözümler sunmak.</p>
+  </div>
+</div>
+  </section>
+
+<script>
+  window.addEventListener('load', () => {
+    // Başlık gelsin
+    document.getElementById('about-title').classList.add('loaded');
+
+    // Kartlar sırayla gelsin
+    const cards = document.querySelectorAll('.info-card');
+    cards.forEach((card, index) => {
+      setTimeout(() => {
+        card.classList.add('visible');
+      }, 600 + index * 300); // Her karta özel gecikme
+    });
+  });
+</script>
+
+  <footer>
+    <ul>
+      <li>Eternal Automation System &copy; 2025</li>
+      <li><a href="#">GitHub</a></li>
+      <li><a href="#">Twitter</a></li>
+      <li><a href="#">YouTube</a></li>
+      <li><a href="#">Instagram</a></li>
+      <li><a href="#">Linkedin</a></li>
+    </ul>
+  </footer>
+</body>
 </html>

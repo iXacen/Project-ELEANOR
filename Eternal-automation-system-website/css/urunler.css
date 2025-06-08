@@ -1,0 +1,136 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.products-container {
+  padding: 80px 20px 40px; /* Üst boşluğu artırdım (40'tan 60'a) */
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  
+  /* Animasyon için başlangıç hali */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s forwards ease-out;
+  animation-delay: 0.3s;
+}
+
+.products-container h1 {
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #fff;
+
+  /* Animasyon için başlangıç hali */
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 0.8s forwards ease-out;
+  animation-delay: 0.1s;
+}
+
+/* Animasyon tanımı */
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Sabit 3 kolon */
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.product-card {
+  background-color: #1c1c1c;
+  border-radius: 12px;
+  padding: 15px;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.image-wrapper {
+  width: 200px;  /* Sabit genişlik */
+  height: auto;  /* Yükseklik içeriğe göre */
+  border-radius: 8px;
+  overflow: visible; /* Taşma olmaması için */
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper img {
+  max-width: 100%;   /* Kapsayıcı genişliğini aşmasın */
+  max-height: 250px; /* Maksimum yüksekliği sınırla */
+  height: auto;      /* Oran korunsun */
+  border-radius: 8px;
+  transition: opacity 0.4s ease;
+  position: static;  /* absolute değil */
+  object-fit: contain; /* Tam görünüm için */
+}
+
+
+.product-card h2 {
+  font-size: 1.2rem;
+  margin: 10px 0 5px;
+  color: #fff;
+}
+
+.product-card p {
+  font-size: 0.9rem;
+  color: #ccc;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.product-card:hover {
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+  transform: translateY(-5px);
+}
+
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* Görselin 4:3 oranında alan kaplaması için */
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.image-wrapper img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Görseller alanı doldururken bozulmasın */
+  border-radius: 8px;
+  transition: opacity 0.4s ease;
+}
+
+.img-normal {
+  opacity: 1;
+  z-index: 1;
+}
+
+.img-hover {
+  opacity: 0;
+  z-index: 2;
+}
+
+.product-card:hover .img-hover {
+  opacity: 1;
+}
+
+.product-card:hover .img-normal {
+  opacity: 0;
+}
+
