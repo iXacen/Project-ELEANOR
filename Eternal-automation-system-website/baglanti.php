@@ -2,7 +2,7 @@
 $servername = "localhost"; // Sunucu adı
 $username = "root"; // MySQL kullanıcı adı
 $password = ""; // MySQL şifre
-$dbname = "urunler"; // Veritabanı adı
+$dbname = "urunler2"; // Veritabanı adı
 
 // Veritabanı bağlantısı
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -15,7 +15,7 @@ if ($conn->connect_error) {
 
 <?php
 $host = 'localhost';
-$db = 'urunler';  // Burada veritabanı adını girin
+$db = 'urunler2';  // Burada veritabanı adını girin
 $user = 'root';
 $pass = "";
 

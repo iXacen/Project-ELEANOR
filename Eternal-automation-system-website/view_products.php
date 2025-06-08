@@ -110,7 +110,7 @@ $products = $stmt->fetchAll();
                                 <img src="uploads/<?php echo htmlspecialchars($product['foto2']); ?>" class="product-thumb" alt="Ürün Görseli 2">
                             <?php endif; ?>
                         </td>
-                        <td><?php echo htmlspecialchars($product['eklenme_tarihi']); ?></td>
+                        <td><?php echo htmlspecialchars($product['created_at']); ?></td>
                         <td>
                             <!-- Silme butonu -->
                             <a href="view_products.php?delete_id=<?php echo $product['id']; ?>" class="delete-btn" onclick="return confirm('Bu ürünü silmek istediğinizden emin misiniz?');">Sil</a>
