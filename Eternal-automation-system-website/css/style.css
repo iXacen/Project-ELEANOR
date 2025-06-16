@@ -29,33 +29,33 @@ ul {
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 3;
+  z-index: 1000;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  padding: 20px 0;
-  height: auto;
+  padding: 20px 50px;
+  height: 140px;
 }
 
-/* Logo */
 .logo {
   width: 210px;
-  height: auto;
-  margin-right: 75px;
+  height: 284px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.logo img {
-  display: block;
+.logo a img {
   width: 100%;
-  height: auto;
-  
+  height: 100%;
+  object-fit: contain;
 }
 
 /* Desktop Menu */
 .desktop-main-menu {
-  margin: 0;
+  margin-right: 50px; /* Menüyü sağa doğru itmek için margin ekledik */
 }
 
 .desktop-main-menu ul {
@@ -64,17 +64,17 @@ ul {
   flex-wrap: wrap;
   padding: 0;
   margin: 0;
+  gap: 30px; /* Menü öğeleri arasına boşluk ekledik */
 }
 
 .desktop-main-menu ul li {
   position: relative;
-  margin: 0 15px;
   padding-bottom: 2px;
   list-style: none;
 }
 
 .desktop-main-menu ul li a {
-  color: white;
+  color: #9c824a;
   text-decoration: none;
   font-family: 'Arial', sans-serif;
   font-weight: 500;
@@ -88,7 +88,7 @@ ul {
   left: 0;
   width: 100%;
   height: 1px;
-  background: #fff;
+  background: #9c824a;
   transform: scaleX(0);
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   transform-origin: right center;
@@ -123,6 +123,7 @@ section {
   margin-bottom: 5px;
   font-weight: 300;
   animation: fadeInUp 0.5s ease-in-out;
+  color: #9c824a;
 }
 
 .section-inner h2 {
@@ -131,6 +132,7 @@ section {
   margin-bottom: 20px;
   animation: fadeInUp 0.5s ease-in-out 0.2s;
   animation-fill-mode: both;
+  color: #9c824a;
 }
 
 .section-inner a {
@@ -165,7 +167,8 @@ section {
   min-width: 130px;
   padding: 15px 50px;
   margin-top: 10px;
-  border: 2px solid #fff;
+  border: 2px solid #c4a96a;
+  color: #c4a96a;
   text-transform: uppercase;
   font-weight: bold;
   overflow: hidden;
@@ -173,7 +176,7 @@ section {
 }
 
 .btn:hover span {
-  color: #000;
+  color: #0a1a3a;
 }
 
 .btn .hover {
@@ -182,8 +185,8 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #fff;
-  color: #000;
+  background-color: #c4a96a;
+
   z-index: -1;
   transform: translateY(100%);
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
@@ -192,6 +195,7 @@ section {
 .btn:hover .hover {
   transform: translateY(0);
 }
+
 
 .scroll-arrow {
   position: absolute;
@@ -205,6 +209,8 @@ section {
 footer {
   position: relative;
   padding: 55px 0;
+  background-color: rgba(0, 0, 0, 0.7); /* tam saydam */
+  color: rgba(0, 0, 0, 0.7); /* tam saydam */;
 }
 
 footer ul {
@@ -212,6 +218,7 @@ footer ul {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  background-color: rgba(0, 0, 0, 0.7); /* tam saydam */
 }
 
 footer ul li {
@@ -234,12 +241,12 @@ footer ul li a:hover {
 /* Hamburger Menu */
 .hamburger {
   position: fixed;
-  top: 35px;
-  right: 20px;
-  z-index: 10;
+  top: 11px; /* Header yüksekliğine göre ayarlayın */
+  right: 50px;
+  z-index: 1001; /* Daha yüksek bir z-index verin */
   cursor: pointer;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   background: none;
   border: none;
 }
@@ -248,12 +255,14 @@ footer ul li a:hover {
 .hamburger-middle,
 .hamburger-bottom {
   position: absolute;
-  width: 20px;
+  width: 24px;
   height: 2px;
-  top: 0;
+  top: 50px;
   left: 0;
   background: #fff;
   transition: all 0.5s;
+  margin: 1px 0;
+  background: #9c824a;
 }
 
 .hamburger-middle {
@@ -309,18 +318,22 @@ footer ul li a:hover {
   right: 0;
   width: 350px;
   height: 100%;
-  background: #000;
+  background: #000(0, 0, 0, 0.5);
   z-index: 4;
   display: flex;
   align-items: center;
   justify-content: center;
   transform: translateX(100%);
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+  margin: 0; /* Eğer varsa margin'leri sıfırla */
+  padding: 0; /* Eğer varsa padding'leri sıfırla */
+  border-left: 1px solid #9c824a;
 }
 
 /* Bring menu from right */
 .show-menu {
   transform: translateX(0);
+  right: 0 !important;
 }
 
 .mobile-main-menu ul {
@@ -330,6 +343,8 @@ footer ul li a:hover {
   justify-content: center;
   padding: 50px;
   width: 100%;
+  margin: 0; /* Margin'leri sıfırla */
+  box-sizing: border-box; /* Padding'i genişliğe dahil et */
 }
 
 .mobile-main-menu ul li {
@@ -343,7 +358,7 @@ footer ul li a:hover {
 }
 
 .mobile-main-menu ul li a {
-  color: #fff;
+  color: #9c824a;
   transition: color 0.6s;
 }
 
@@ -391,7 +406,7 @@ footer ul li a:hover {
   max-width: 500px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   margin: auto;
-  margin-top: 100px;
+  margin-top: 130px;
   
 
 }
@@ -507,8 +522,10 @@ footer ul li a:hover {
     }
     .about-section {
       max-width: 1200px;
-      margin: 0 auto;
+      margin: 10px auto;
       padding: 4rem 2rem;
+      margin-top: 50px;
+      margin-bottom: 50px;
     }
 
     .section-title {

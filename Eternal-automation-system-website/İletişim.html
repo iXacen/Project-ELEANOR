@@ -19,11 +19,6 @@
       </ul>
     </div>
     <header class="main-header">
-      <div class="logo">
-        <a href="index.html">
-          <img src="img/logo1.png" alt="SpaceX" />
-        </a>
-      </div>
       <nav class="desktop-main-menu">
         <ul>
           <li><a href="index.html">ANASAYFA</a></li>
@@ -32,6 +27,11 @@
           <li><a href="İletişim.html">İLETİŞİM</a></li>
         </ul>
       </nav>
+          <div class="logo">
+      <a href="index.html">
+        <img src="img/logo.webp" alt="Logo" />
+      </a>
+    </div>
     </header>
 
         <!-- Hamburger Menu -->
@@ -45,6 +45,10 @@
 
         <form action="https://formspree.io/f/xnnjeygd" method="POST" class="contact-form">
                     <div id="paket-bilgisi" style="text-align:center; margin-bottom: 20px;"></div>
+                    <div id="secimContainer" style="display:none; border: 1px solid #444; padding: 15px; border-radius: 10px; background-color: rgba(255, 255, 255, 0.05); margin-bottom: 20px;">
+                      <h3 style="margin: 0 0 10px;">Sera Projesi Teklifiniz:<br> <span id="secimBilgisi" style="color:#ffd700"></span></h3>
+                    </div>
+                    <br>
                     <label>AŞŞAĞIDAKİ BİLGİLERİ DOLDURARAK BİZİMLE İLETİŞİME GEÇEBİLİRSİNİZ</label>
 
                     <input type="text" name="ad" placeholder="Adınız" required>
@@ -52,9 +56,12 @@
                     <input type="email" name="email" placeholder="E-Posta Adresiniz" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Lütfen geçerli bir e-posta adresi girin. (Örnek: kullanıcı@domain.com)">
                     <input type="tel" name="telefon" placeholder="Telefon Numaranız" required pattern="[0-9\s]{10,15}" title="Lütfen geçerli bir telefon numarası girin (boşluklar dahil, 10-15 haneli)">
                     <textarea id="message" name="message" required placeholder="Mesajınızı buraya yazın"></textarea>
+
                     <input type="hidden" name="secilenPaket" id="hidden-paket">
                     <input type="hidden" name="paketFiyati" id="hidden-fiyat">
                     <input type="hidden" name="ozelPaketDetay" id="ozelPaketDetay" />
+                    <input type="hidden" name="secilenSecim" id="hidden-secimBilgisi" />
+
 
 
 
@@ -146,7 +153,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const secim = urlParams.get('secim');
+  if (secim) {
+    const decodedSecim = decodeURIComponent(secim).replace(/\n/g, '<br>');
+    document.getElementById('secimBilgisi').innerHTML = decodedSecim;
+    document.getElementById('secimContainer').style.display = 'block';
 
+    // Gizli inputa sade text olarak yaz (HTML olmamalı)
+    const hiddenSecimInput = document.getElementById('hidden-secimBilgisi');
+    if (hiddenSecimInput) {
+      hiddenSecimInput.value = decodeURIComponent(secim).replace(/\n/g, ', ');
+    }
+  }
+});
+
+
+</script>
 
   </body>
 

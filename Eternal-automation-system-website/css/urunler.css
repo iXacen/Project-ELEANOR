@@ -7,7 +7,7 @@ body {
 }
 
 .products-container {
-  padding: 80px 20px 40px; /* Üst boşluğu artırdım (40'tan 60'a) */
+  padding: 100px 20px 40px; /* Üst boşluğu artırdım (40'tan 60'a) */
   max-width: 1200px;
   margin: auto;
   text-align: center;
@@ -23,6 +23,7 @@ body {
   margin-bottom: 40px;
   font-size: 2.5rem;
   color: #fff;
+  margin-top: 10px;
 
   /* Animasyon için başlangıç hali */
   opacity: 0;

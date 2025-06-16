@@ -9,8 +9,7 @@ $result = $conn->query($sql);
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Ürünlerimiz</title>
-  <link rel="stylesheet" href="css/urunler.css"> 
+  <title>Ürünlerimiz</title> 
 </head>
 <body>
 

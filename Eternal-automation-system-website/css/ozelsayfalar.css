@@ -9,50 +9,62 @@ body {
 
 /* Header düzenleme */
 .main-header {
-  position: sticky; /* scroll ile birlikte kayar ama hep üstte kalır */
-  top: 0;
-  width: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* tam saydam */
-  z-index: 1000;
   display: flex;
   align-items: center;
-  justify-content: center; /* içerikleri ortalar */
-  gap: 5px; /* logo ile menü arası boşluk */
-  padding: 20px 0;
+  justify-content: space-between;
+  padding: 5px 230px;
+  background-color: #000(0, 0, 0, 0.7);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
   box-sizing: border-box;
 }
 
-/* Header içindeki logo ve menü, hamburger div içine alarak ortala */
-.main-header .logo,
-.main-header nav,
-.main-header #menu-btn {
-  display: flex;
-  align-items: center;
-}
-
-/* Logo biraz küçült */
-.main-header .logo img {
-  height: 50px;
-  width: auto;
-}
-
-/* Navigasyon menüsü */
-.main-header nav ul {
-  list-style: none;
-  display: flex;
-  gap: 10px;
-  margin: 0;
+/* Logo düzenleme */
+.logo1 {
+  width: auto; /* Sabit genişlik yerine auto */
+  height: auto;
+  margin-right: 0; /* Sağ boşluğu kaldır */
   padding: 0;
 }
 
+.logo1 img {
+  width: 210px; /* Logo boyutunu sabitle */
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+}
+
+/* Navigasyon menüsü */
+.desktop-main-menu {
+  display: flex;
+  flex-grow: 1; /* Kalan alanı doldur */
+  justify-content: flex-end; /* Menüyü sağa yasla */
+}
+
+.desktop-main-menu ul {
+  display: flex;
+  gap: 5px; /* Öğeler arası boşluk */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+}
+
 /* Linkler */
-.main-header nav ul li a {
-  color: #fff;
+.desktop-main-menu ul li a {
+  color: #9c824a;
   text-decoration: none;
   font-weight: 300;
   font-size: 16px;
-  padding: 3px 3px;
+  padding: 5px 10px;
   transition: color 0.3s ease;
+  white-space: nowrap; /* Metinlerin alt satıra inmesini engelle */
+}
+
+.desktop-main-menu ul li a:hover {
+  color: #9c824a;
 }
 
 
@@ -68,7 +80,7 @@ body {
 /* Main içerik */
 main {
   max-width: 1200px;
-  margin: 60px auto 60px auto; /* header yüksekliği kadar üst boşluk */
+  margin: 0 auto 60px auto; /* Üst margin'i 0 yapın */
   padding: 0 40px;
 }
 
@@ -88,8 +100,9 @@ footer {
 
 
 .generally-container {
-  max-width: 1200px;
+  max-width: 1800px;
   margin: auto;
+  margin-top: 0;
   text-align: center;
 }
 
@@ -272,4 +285,315 @@ footer {
   }
 }
 
+.modern-block {
+  position: relative;
+  background-color: #111;
+  border: 2px solid #38a863;
+  border-radius: 20px;
+  padding: 30px 40px;
+  margin-top: 60px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 12px rgba(56, 168, 99, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #ddd;
+  text-align: left;
+  overflow: visible;
+}
 
+.modern-block::before {
+  content: "";
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;      /* blokun tamamı kadar geniş */
+  height: 30px;     /* üçgenin yüksekliği */
+  background-color: #38a863;
+  clip-path: polygon(0 100%, 50% 0, 100% 100%);
+  
+  opacity: 0;
+  transition: opacity 0.3s ease, top 0.3s ease;
+  pointer-events: none;
+}
+
+.modern-block:hover::before {
+  opacity: 1;
+  top: -30px;
+}
+
+.modern-block:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 0 20px rgba(56, 168, 99, 0.6);
+}
+
+
+/* Başlık ve diğer kodlar aynen kalsın */
+.modern-block h2 {
+  font-size: 28px;
+  color: #38a863;
+  margin-bottom: 20px;
+  position: relative;
+  display: inline-block;
+  font-weight: 600;
+}
+
+.modern-block h2::after {
+  content: '';
+  display: block;
+  width: 40%;
+  height: 2px;
+  background-color: #38a863;
+  margin-top: 6px;
+}
+
+.modern-block ul,
+.modern-block p {
+  font-size: 17px;
+  line-height: 1.7;
+  color: #ccc;
+  margin-bottom: 15px;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .modern-block {
+    padding: 20px 25px;
+  }
+  .modern-block h2 {
+    font-size: 24px;
+  }
+  .modern-block ul,
+  .modern-block p {
+    font-size: 15px;
+  }
+}
+
+
+.cta-block.sera-style {
+  position: relative;
+  background-color: #222;
+  padding: 50px 30px;
+  margin-top: 60px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(56, 168, 99, 0.3);
+  overflow: hidden;
+}
+
+/* Üst çatı efekti */
+.cta-block.sera-style::before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  height: 25px;
+  background: #38a863;
+  clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+  opacity: 0.6;
+  z-index: 1;
+}
+
+/* Alt fade (toprak/çim görünümü) */
+.cta-block.sera-style::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to top, rgba(56, 168, 99, 0.25), transparent);
+  border-radius: 0 0 10px 10px;
+  z-index: 1;
+}
+
+/* İçerik üstte kalmalı */
+.cta-block.sera-style * {
+  position: relative;
+  z-index: 2;
+}
+
+
+.cta-block {
+  background-color: #222;
+  padding: 50px 30px;
+  margin-top: 60px;
+  border-radius: 10px;
+  animation: fadeInUp 0.8s ease-in-out;
+  height: auto;
+  width: auto;
+}
+
+.cta-block h2, .cta-block p {
+  color: #c4a96a;
+}
+.service-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.service-card {
+  border: 1px solid #fff; /* sade beyaz border */
+  border-radius: 20px;
+  padding: 24px;
+  width: 250px;
+  background-color: #111; /* koyu arka plan, senin genel tasarımına uygun */
+  color: #ddd; /* içerik rengi daha açık ve okunabilir */
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 420px; /* sabit yükseklik */
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+.service-card:hover {
+  box-shadow: 0 0 16px rgba(156, 130, 74, 0.3); /* altın tonlarında hafif bir hover efekti */
+  border-color: #9c824a;
+}
+
+.service-content h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #c4a96a;
+}
+
+.service-content ol {
+  padding-left: 18px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #ccc;
+  text-align: left;
+}
+
+/* Seçim bölgesi */
+.radio-area {
+  margin-top: auto;
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+/* Daire buton */
+.custom-radio {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  border: 3px solid #aaa;
+  background-color: white;
+  transition: all 0.3s ease;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+}
+
+/* Checkbox gizle */
+input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Checkbox işaretli olduğunda daireyi yeşil yap */
+input[type="checkbox"]:checked + .custom-radio {
+  background-color: #38a863;
+  border-color: #38a863;
+  box-shadow: 0 0 6px rgba(56, 168, 99, 0.7);
+}
+
+/* Seçili kart stili: */
+
+.service-card input[type="checkbox"]:checked ~ .service-content,
+.service-card input[type="checkbox"]:checked ~ .radio-area {
+  border-radius: 20px;
+  box-shadow: 0 0 12px rgba(56, 168, 99, 0.4);
+  border: 2px solid #38a863;
+  background-color: #1a1a1a;
+}
+
+/* Ama bu selector yapısal olarak çalışmayabilir, o yüzden label’a input:checked durumunda bir class ekleyecek JS yazman gerekebilir */
+
+/* Daha iyi çalışması için label’a seçili class'ı eklenebilir: */
+
+.service-card.selected {
+  border-color: #38a863;
+  background-color: #1a1a1a;
+  box-shadow: 0 0 16px rgba(56, 168, 99, 0.5);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .service-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
+
+/* Sade sera tarzı kutular */
+.sera-style {
+  position: relative;
+  border: 2px solid #38a863;
+  border-radius: 20px;
+  padding: 40px;
+  margin-top: 60px;
+  overflow: hidden;
+  box-shadow: 0 0 25px rgba(56, 168, 99, 0.2);
+    backdrop-filter: blur(3px);
+  background-color: rgba(17, 17, 17, 0.85);
+}
+
+/* Üstte zarif üçgen sera çatısı efekti */
+.sera-style::before {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #38a863;
+  clip-path: polygon(0 100%, 50% 0%, 100% 100%);
+  opacity: 0.5;
+}
+
+/* Altta yumuşak yeşil fade (toprak veya çim efekti) */
+.sera-style::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: linear-gradient(to top, rgba(56,168,99,0.4), transparent);
+  border-radius: 0 0 20px 20px;
+}
+
+
+/* Güneş efekti */
+.sera-style .sun {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ffdd00, #ff9900 80%);
+  box-shadow:
+    0 0 10px rgba(255, 221, 0, 0.7),
+    0 0 30px rgba(255, 165, 0, 0.5),
+    0 0 60px rgba(255, 140, 0, 0.2);
+  animation: sun-pulse 3s ease-in-out infinite;
+  z-index: 5;
+}
+.sera-style > *:not(.sun) {
+  position: relative;
+  z-index: 6;
+}
