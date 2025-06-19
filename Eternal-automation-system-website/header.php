@@ -16,26 +16,30 @@
     <div id="mobile-menu" class="mobile-main-menu">
       <ul>
           
-          <li><a href="index.html">ANASAYFA</a></li>
-          <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
-          <li><a href="Ürünlerimiz.php">ÜRÜNLERİMİZ</a></li>
-          <li><a href="İletişim.html">İLETİŞİM</a></li>
+        <li><a href="giris.html">ANASAYFA</a></li>
+        <li><a href="index.html">ÜRÜNLERİMİZ</a></li>
+        <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
+        <li><a href="Ürünlerimiz.php">REFERANSLARIMIZ</a></li>
+        <li><a href="#">BELGELERİMİZ</a></li>
+        <li><a href="İletişim.html">İLETİŞİM</a></li>
       </ul>
     </div>
     <header class="main-header">
-      <nav class="desktop-main-menu">
-        <ul>
-          <li><a href="index.html">ANASAYFA</a></li>
-          <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
-          <li><a href="Ürünlerimiz.php">ÜRÜNLERİMİZ</a></li>
-          <li><a href="İletişim.html">İLETİŞİM</a></li>
-        </ul>
-      </nav>
-                <div class="logo">
+              <div class="logo">
       <a href="index.html">
         <img src="img/logo.webp" alt="Logo" />
       </a>
     </div>
+      <nav class="desktop-main-menu">
+        <ul>
+        <li><a href="giris.html">ANASAYFA</a></li>
+        <li><a href="index.html">ÜRÜNLERİMİZ</a></li>
+        <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
+        <li><a href="Ürünlerimiz.php">REFERANSLARIMIZ</a></li>
+        <li><a href="#">BELGELERİMİZ</a></li>
+        <li><a href="İletişim.html">İLETİŞİM</a></li>
+        </ul>
+      </nav>
     </header>
 
     <!-- Hamburger Menu -->

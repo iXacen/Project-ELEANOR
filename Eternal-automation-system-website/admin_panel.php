@@ -25,10 +25,12 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
         <h3>Yönetim Paneline Hoşgeldiniz</h3>
         
         <!-- Burada ürün ekleme, düzenleme veya veri görüntüleme işlemleri olabilir -->
-        <div class="admin-options">
-            <a href="add_product.php" class="btn">Ürün Ekle</a>
-            <a href="view_products.php" class="btn">Ürünleri Görüntüle</a>
-        </div>
+            <div class="admin-options">
+                <a href="add_product.php" class="btn">Ürün Ekle</a>
+                <a href="view_products.php" class="btn">Ürünleri Görüntüle</a>
+                <a href="add_document.php" class="btn">Belge Ekle</a>
+                <a href="view_documents.php" class="btn">Belgeleri Görüntüle</a>
+            </div>
     </div>
 
     <?php

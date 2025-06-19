@@ -41,6 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="add-product-form">
         <a href="admin_giris.php?logout=true" class="logout-btn">Çıkış Yap</a>
         <a href="index.html" class="home-btn">Anasayfaya Dön</a>
+        <a href="admin_panel.php" class="back-btn">Admin Paneline Dön</a>
         <h2>Ürün Ekle</h2>
             <form action="add_product.php" method="POST" enctype="multipart/form-data">
                 <label for="product_name">Ürün Adı:</label>

@@ -86,6 +86,7 @@ $products = $stmt->fetchAll();
     <div class="view-products">
         <a href="admin_giris.php?logout=true" class="logout-btn">Çıkış Yap</a>
         <a href="index.html" class="home-btn">Anasayfaya Dön</a>
+        <a href="admin_panel.php" class="back-btn">Admin Paneline Dön</a>
         <h2>Ürünler</h2>
         <table>
             <thead>

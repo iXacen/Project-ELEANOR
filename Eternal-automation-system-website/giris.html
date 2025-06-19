@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <script src="js/script.js" defer></script>
+    <title>Eternal Automation System - Anasayfa</title>
+    <style>
+        /* Ana Sayfa Özel Stilleri - Koyu Tema */
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/section-a.jpeg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid #333;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            animation: fadeInDown 1s ease;
+            color: #ffffff;
+        }
+        
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            animation: fadeInUp 1s ease;
+            color: #cccccc;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #0066cc;
+            padding: 1rem 2rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            animation: fadeIn 1.5s ease;
+            border: none;
+        }
+        
+        .cta-button:hover {
+            background: white;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 119, 230, 0.3);
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .feature-card {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            border: 1px solid #333;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 119, 230, 0.2);
+            border-color: #0066cc;
+        }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #0066cc;
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-card h3 {
+            color: #ffffff;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-card p {
+            color: #b0b0b0;
+        }
+        
+        .about-section {
+            background: #1a1a1a;
+            padding: 5rem 2rem;
+            text-align: center;
+            border-top: 1px solid #333;
+            border-bottom: 1px solid #333;
+        }
+        
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .about-content h2 {
+            color: #ffffff;
+            margin-bottom: 2rem;
+        }
+        
+        .about-content p {
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-item {
+            background: #1e1e1e;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid #333;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #0066cc;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #b0b0b0;
+        }
+        
+        .faq-section {
+            padding: 5rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .faq-section h2 {
+            color: #ffffff;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-bottom: 1px solid #333;
+            padding-bottom: 1.5rem;
+        }
+        
+        .faq-question {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        
+        .faq-question:hover {
+            color: #0066cc;
+        }
+        
+        .faq-answer {
+            display: none;
+            padding-top: 0.5rem;
+            color: #b0b0b0;
+            line-height: 1.6;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        .testimonials {
+            background: #0066cc;
+            background: linear-gradient(135deg, #004a99, #0066cc);
+            color: white;
+            padding: 5rem 2rem;
+            text-align: center;
+            border-top: 1px solid #0077e6;
+            border-bottom: 1px solid #0077e6;
+        }
+        
+        .testimonials h2 {
+            margin-bottom: 2rem;
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            display: none;
+            padding: 2rem;
+        }
+        
+        .testimonial.active {
+            display: block;
+            animation: fadeIn 1s ease;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            line-height: 1.6;
+        }
+        
+        .testimonial-author {
+            font-weight: bold;
+        }
+        
+        .slider-controls {
+            margin-top: 2rem;
+        }
+        
+        .slider-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .slider-dot.active {
+            background: white;
+        }
+        
+        .contact-cta {
+            text-align: center;
+            padding: 5rem 2rem;
+            background: #1a1a1a;
+            border-top: 1px solid #333;
+        }
+        
+        .contact-cta h2 {
+            color: #ffffff;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-cta p {
+            max-width: 700px;
+            margin: 0 auto 2rem;
+            color: #b0b0b0;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes fadeInDown {
+            from { 
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .stats {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header" style="background-color:black;">
+        <div class="logo">
+            <a href="index.html">
+                <img src="img/logo.webp" alt="Logo" />
+            </a>
+        </div>
+        <nav class="desktop-main-menu">
+            <ul>
+                <li><a href="giris.html">ANASAYFA</a></li>
+                <li><a href="index.html">ÜRÜNLERİMİZ</a></li>
+                <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
+                <li><a href="Ürünlerimiz.php">REFERANSLARIMIZ</a></li>
+                <li><a href="belgeler.php">BELGELERİMİZ</a></li>
+                <li><a href="İletişim.html">İLETİŞİM</a></li>
+                <li><a href="#sss">SSS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Endüstriyel Otomasyon Çözümlerinde Lider</h1>
+        <p>Eternal Automation System olarak, endüstriyel süreçlerinizi optimize etmek ve verimliliğinizi artırmak için yenilikçi otomasyon çözümleri sunuyoruz.</p>
+        <a href="index.html" class="cta-button">Ürünlerimizi Keşfedin</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-cogs"></i>
+            </div>
+            <h3>Yüksek Kaliteli Ürünler</h3>
+            <p>Endüstriyel standartlara uygun, dayanıklı ve uzun ömürlü otomasyon ekipmanları sunuyoruz.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-headset"></i>
+            </div>
+            <h3>7/24 Teknik Destek</h3>
+            <p>Müşterilerimize kesintisiz teknik destek hizmeti sağlıyoruz.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-icon">
+                <i class="fas fa-lightbulb"></i>
+            </div>
+            <h3>Yenilikçi Çözümler</h3>
+            <p>Sektördeki gelişmeleri takip ederek en son teknolojileri müşterilerimizle buluşturuyoruz.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section">
+        <div class="about-content">
+            <h2>Eternal Automation System Hakkında</h2>
+            <p>2005 yılında kurulan şirketimiz, endüstriyel otomasyon alanında uzmanlaşmış bir teknoloji firmasıdır. Müşteri memnuniyetini ön planda tutarak, kaliteli ürünler ve hizmetler sunmaktayız.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">18+</div>
+                    <div class="stat-label">Yıllık Deneyim</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Mutlu Müşteri</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Tamamlanan Proje</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Teknik Destek</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="sss">
+        <h2>Sıkça Sorulan Sorular</h2>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Hangi endüstrilere hizmet veriyorsunuz?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Gıda, tekstil, otomotiv, kimya, enerji ve daha birçok endüstriyel sektöre otomasyon çözümleri sunmaktayız. Özel ihtiyaçlarınıza göre özelleştirilmiş çözümler geliştiriyoruz.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Ürünlerinizin garanti süresi nedir?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Tüm ürünlerimiz en az 2 yıl garanti kapsamındadır. Bazı ürünlerde bu süre daha uzun olabilmektedir. Garanti şartları için ürün detay sayfalarını inceleyebilirsiniz.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Teknik destek hizmetiniz var mı?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Evet, 7/24 teknik destek hizmeti sunmaktayız. Acil durumlarda teknik ekibimiz en kısa sürede müdahale etmektedir.</p>
+            </div>
+        </div>
+        
+        <div class="faq-item">
+            <div class="faq-question">
+                <span>Özel proje taleplerimi karşılayabilir misiniz?</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+            <div class="faq-answer">
+                <p>Evet, müşterilerimizin özel ihtiyaçlarına yönelik özelleştirilmiş otomasyon çözümleri geliştiriyoruz. Uzman ekibimizle birlikte sizin için en uygun çözümü üretiyoruz.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>Müşterilerimiz Ne Diyor?</h2>
+        
+        <div class="testimonial-slider">
+            <div class="testimonial active">
+                <p class="testimonial-text">"Eternal Automation System ile çalışmaktan son derece memnunuz. Sundukları otomasyon çözümleri sayesinde üretim verimliliğimiz %30 arttı."</p>
+                <p class="testimonial-author">- Ahmet Yılmaz, ABC Endüstri</p>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"Teknik destek ekibi her zaman hızlı ve çözüm odaklı yaklaşıyor. 5 yıldır sorunsuz bir şekilde kullandığımız sistemleri için teşekkür ederiz."</p>
+                <p class="testimonial-author">- Ayşe Demir, XYZ Tekstil</p>
+            </div>
+            
+            <div class="testimonial">
+                <p class="testimonial-text">"Özel projemiz için geliştirdikleri çözüm tam olarak ihtiyacımızı karşıladı. Profesyonel yaklaşımları için teşekkürler."</p>
+                <p class="testimonial-author">- Mehmet Kaya, DEF Gıda</p>
+            </div>
+            
+            <div class="slider-controls">
+                <span class="slider-dot active" data-slide="0"></span>
+                <span class="slider-dot" data-slide="1"></span>
+                <span class="slider-dot" data-slide="2"></span>
+            </div>
+
+                <div style="text-align: center; padding: 5rem 2rem; ">
+                    <h2 style="margin-bottom: 1.5rem;">Bizimle İletişime Geçin</h2>
+                    <p style="max-width: 700px; margin: 0 auto 2rem;">Otomasyon ihtiyaçlarınız için uzman ekibimizle iletişime geçebilir, ücretsiz danışmanlık hizmetimizden yararlanabilirsiniz.</p>
+                    <a href="İletişim.html" class="cta-button">İletişim Formu</a>
+                </div>
+
+        </div>
+    </section>
+
+    <footer>
+      <ul>
+        <li>Eternal Automation System &copy; 2025</li>
+        <li>
+          <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+            </svg>
+            GitHub
+          </a>
+        </li>
+        
+        <li>
+          <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+            </svg>
+            Twitter
+          </a>
+        </li>
+        
+        <li>
+          <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+            </svg>
+            Instagram
+          </a>
+        </li>
+        
+        <li>
+          <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+            </svg>
+            LinkedIn
+          </a>
+        </li>
+        <br>
+        <li>       
+        <div class="contact-info" style="display: flex; gap: 1.5rem;">
+            <a href="tel:+905340169531" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+                <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+              </svg>
+              <span>+90 (534) 016 95 31</span>
+            </a>
+            
+            <a href="mailto:nzmykr9@gmail.com" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+              </svg>
+              <span>nzmykr9@gmail.com</span>
+            </a>
+        </div>
+      </li>
+      </ul>          
+    </footer>
+
+    <script>
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isActive = answer.classList.contains('active');
+                
+                // Close all answers first
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.classList.remove('active');
+                });
+                
+                // Toggle current answer if it wasn't active
+                if (!isActive) {
+                    answer.classList.add('active');
+                }
+                
+                // Rotate icon
+                const icon = question.querySelector('i');
+                if (answer.classList.contains('active')) {
+                    icon.style.transform = 'rotate(180deg)';
+                } else {
+                    icon.style.transform = 'rotate(0deg)';
+                }
+            });
+        });
+        
+        // Testimonial Slider
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        function showSlide(n) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+            
+            currentSlide = (n + slides.length) % slides.length;
+            slides[currentSlide].classList.add('active');
+            dots[currentSlide].classList.add('active');
+        }
+        
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                showSlide(parseInt(dot.getAttribute('data-slide')));
+            });
+        });
+        
+        // Auto slide change every 5 seconds
+        setInterval(() => {
+            showSlide(currentSlide + 1);
+        }, 5000);
+    </script>
+</body>
+</html>

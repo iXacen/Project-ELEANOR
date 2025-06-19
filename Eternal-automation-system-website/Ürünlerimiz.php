@@ -9,12 +9,12 @@ $result = $conn->query($sql);
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Ürünlerimiz</title> 
+  <title>Referanslarımız</title> 
 </head>
 <body>
 
 <div class="products-container">
-  <h1>Ürünlerimiz</h1>
+  <h1>REFERANSLARIMIZ</h1>
 <div class="products-grid">
   <?php if ($result->num_rows > 0): ?>
     <?php while($row = $result->fetch_assoc()): ?>

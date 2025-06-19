@@ -2,53 +2,357 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eternal Automation System - Anakart Üretim</title>
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/ozelsayfalar.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
-  <title>Eternal Automation System - Anakart Üretim</title>
 </head>
 <body>
-
-  <!-- Header -->
-  <header class="main-header">
+  <header class="main-header">    
     <div class="logo">
       <a href="index.html">
-        <img src="img/logo.png" alt="logo" />
+        <img src="img/logo.webp" alt="logo" />
       </a>
     </div>
     <nav class="desktop-main-menu">
       <ul>
-        <li><a href="index.html">ANASAYFA</a></li>
+        <li><a href="giris.html">ANASAYFA</a></li>
+        <li><a href="index.html">ÜRÜNLERİMİZ</a></li>
         <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
-        <li><a href="Ürünlerimiz.php">ÜRÜNLERİMİZ</a></li>
+        <li><a href="Ürünlerimiz.php">REFERANSLARIMIZ</a></li>
+        <li><a href="#">BELGELERİMİZ</a></li>
         <li><a href="İletişim.html">İLETİŞİM</a></li>
       </ul>
     </nav>
+
   </header>
+  <style>
+    .pcb-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 30px;
+/*       border: 2px solid #38a863;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(56, 168, 99, 0.2);
+      background-color: #122429; */
+      position: relative;
+      margin-top: 60px;
+    }
+    .pcb-container h1 {
+      text-align: center;
+      color: #c4a96a;
+    }
+    .pcb-card {
+      background: #1a2c34;
+      border: 2px solid #38a863;
+      border-radius: 10px;
+      padding: 30px;
+      margin-bottom: 30px;
+      position: relative;
+      z-index: 1;
+      box-shadow: 0 0 20px rgba(56, 168, 99, 0.3);
+      background-image:
+        linear-gradient(to right, #2c3e50 1px, transparent 1px),
+        linear-gradient(to bottom, #2c3e50 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .pcb-dots {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+    .pcb-dot {
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      background: #38a863;
+      border-radius: 50%;
+      box-shadow: 0 0 5px #38a863;
+    }
+    .pcb-card h2 {
+      color: #c4a96a;
+      border-bottom: 2px solid #38a863;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    .pcb-card li {
+      padding-left: 25px;
+      margin-bottom: 10px;
+      position: relative;
+      font-size: large;
+    }
+    .pcb-card li::before {
+      content: "■";
+      color: #38a863;
+      position: absolute;
+      left: 0;
+      font-size: 12px;
+    }
+    .pcb-intro {
+      background: linear-gradient(145deg, #1e353c, #0f1e23);
+      border: 2px dashed #38a863;
+      border-radius: 10px;
+      padding: 20px 25px;
+      margin-bottom: 30px;
+      box-shadow: inset 0 0 10px rgba(56,168,99,0.4);
+      color: #d0f7e5;
+      font-size: large;
+    }
+    .pcb-cta-section {
+      background: #0f1f24;
+      border: 2px solid #38a863;
+      border-radius: 12px;
+      padding: 40px 20px;
+      margin-top: 40px;
+      box-shadow: 0 0 20px rgba(56,168,99,0.3);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .pcb-service-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+    .pcb-service-card {
+      background: linear-gradient(to bottom right, #1a2c34, #122429);
+      border: 1px solid #38a863;
+      border-radius: 10px;
+      padding: 20px;
+      width: 300px;
+      height: auto;
+      box-shadow: 0 0 12px rgba(56,168,99,0.2);
+      cursor: pointer;
+      overflow: visible;
+    }
+    .pcb-service-card:hover {
+      box-shadow: 0 0 18px rgba(56,168,99,0.4);
+    }
+    .pcb-service-card h3 {
+      color: #91f3bb;
+      margin-bottom: 10px;
+    }
+    .pcb-service-card ol {
+      text-align: left;
+      font-size: 0.95em;
+      padding-left: 18px;
+    }
+
+    /* DÜZELTİLEN KISIM - RADIO & CHECKBOX ALTI SPAN ORTALAMA VE HİZALAMA */
+
+    .pcb-radio {
+      flex-direction: column;
+      margin-top: 15px;
+      display: flex;
+      align-items: center;   /* Dikeyde ortalar */
+      justify-content: center; /* Yatayda ortalar */
+      gap: 10px;
+      position: relative; /* Z-index için */
+      z-index: 2;
+    }
+    .pcb-radio input[type="checkbox"] {
+      appearance: auto; /* Tarayıcı özgün stili */
+      accent-color: #38a863;
+      width: 18px;
+      height: 18px;
+      cursor: pointer;
+      position: relative;
+      z-index: 2;
+      margin: 0; /* Kenar boşluğunu sıfırla */
+    }
+    .pcb-radio .custom-radio {
+      display: inline-block;
+      width: 18px;
+      height: 18px;
+      border-radius: 4px;
+      background-color: transparent;
+      border: 2px solid #38a863;
+      position: relative;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    .pcb-radio input[type="checkbox"]:checked + .custom-radio {
+      background-color: #38a863;
+      box-shadow: 0 0 8px #38a863 inset;
+    }
+    .pcb-radio input[type="checkbox"]:checked + .custom-radio::after {
+      content: "✓";
+      position: absolute;
+      color: white;
+      font-size: 12px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+    }
+
+    .cta-button {
+      background: linear-gradient(to right, #38a863, #2c3e50);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 0 8px #38a863;
+      transition: 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+    .cta-button:hover {
+      background: linear-gradient(to right, #2e8b57, #1a2c34);
+      transform: scale(1.05);
+    }
 
 
- <main>
-  <div class="generally-container">
-    <h1>Yakında...</h1>
-
-  </div>
-
-
- </main>
-
-  <!-- Footer -->
-  <footer>
+  </style>
+  <main>
+    <div class="pcb-container">
+      
+      <div class="pcb-intro">
+        <div class="pcb-dots" id="dots1"></div>
+        <h1>Anakart ve PCB Çözümlerinde Tam Kapsamlı Partneriniz:<br> Tasarım, Tamir ve Uzmanlık</h1>
+        <p>Elektronik cihazlar, iş ve günlük hayatımızın ayrılmaz bir parçası haline gelmiştir. Bu cihazların kalbi olan anakartlar ve baskılı devre kartları (PCB'ler), karmaşık yapıları nedeniyle hem tasarımları hem de arızalandığında uzman müdahalesi gerektirmeleriyle öne çıkar. Şirketimiz, en son teknoloji ekipmanları, alanında uzman mühendis ve teknisyen kadrosuyla, ihtiyaçlarınıza özel anakart ve PCB tasarımından, her türlü anakart ve PCB arızasında hızlı, güvenilir ve garantili tamir hizmetlerine kadar tam kapsamlı çözümler sunmaktadır. Elektronik projelerinizi hayata geçirin ve mevcut cihazlarınızın ömrünü uzatın.</p>
+      </div>
+      <div class="pcb-card">
+        <div class="pcb-dots" id="dots2"></div>
+        <h2>Anakart ve PCB Tasarım Hizmetleri: İnovasyonu Somutlaştırın</h2>
+        <ul>
+          <li><strong>Özel Anakart ve PCB Tasarımı:</strong> Projenizin gereksinimlerine ve teknik spesifikasyonlarına uygun olarak, sıfırdan özel anakart ve PCB tasarımları gerçekleştiriyoruz. Gömülü sistemler, endüstriyel kontrol kartları, prototipleme kartları veya özelleştirilmiş donanım çözümleri için en uygun tasarımları sunuyoruz.</li>
+          <li><strong>Şematik Tasarım ve Yerleşim (Layout):</strong> Elektronik devre şemalarının oluşturulması, bileşen seçimi ve kart üzerindeki en verimli yerleşim planının yapılması konusunda uzmanlık sağlıyoruz.</li>
+          <li><strong>Prototipleme ve Test:</strong> Tasarlanan kartların prototiplerini üreterek detaylı testler gerçekleştiriyor, performansını ve fonksiyonelliğini doğruluyoruz. Üretime geçmeden önce gerekli tüm revizyonları yapıyoruz.</li>
+          <li><strong>Üretim Desteği ve Danışmanlık:</strong> Tasarımın üretim aşamasına geçişinde (DFM - Design for Manufacturability) danışmanlık hizmeti sunarak, seri üretim süreçlerinin sorunsuz ilerlemesini sağlıyoruz.</li>
+          <li><strong>Çok Katmanlı ve Yüksek Frekanslı Tasarımlar:</strong> Karmaşık ve yüksek performans gerektiren uygulamalar için çok katmanlı PCB tasarımları ve sinyal bütünlüğü gerektiren yüksek frekanslı kart çözümleri sunuyoruz.</li>
+        </ul>
+      </div>
+      <div class="pcb-card">
+        <div class="pcb-dots" id="dots3"></div>
+        <h2>Kapsamlı Anakart ve PCB Tamir Hizmetlerimiz</h2>
+        <ul>
+          <li><strong>Detaylı Arıza Tespiti:</strong> Arızalı anakart ve PCB'lerinizi, gelişmiş test cihazları (osiloskoplar, multimetreler, termal kameralar) ve yazılımlar kullanarak noktasal olarak tespit ediyoruz. En küçük arızaları bile gözden kaçırmayan titiz bir analiz süreci uyguluyoruz.</li>
+          <li><strong>Komponent Bazında Onarım:</strong> Kart üzerindeki arızalı çip, direnç, kondansatör, diyot gibi komponentleri mikroskop altında uzmanlıkla değiştiriyoruz. Bu sayede, kartın tamamını değiştirmek yerine sadece arızalı parçayı onararak maliyet avantajı sağlıyoruz.</li>
+          <li><strong>Lehimleme ve Yeniden Lehimleme (Rework/Reballing):</strong> BGA (Ball Grid Array) ve SMD (Surface Mount Device) gibi karmaşık bileşenlerin profesyonel lehimleme ve yeniden lehimleme işlemlerini, IPC standartlarına uygun olarak gerçekleştiriyoruz.</li>
+          <li><strong>Endüstriyel Anakart Tamiri:</strong> Üretim hatlarında, otomasyon sistemlerinde ve endüstriyel makinelerde kullanılan özel anakart ve PCB'lerin arızalarını gidererek iş sürekliliğinizi sağlıyoruz.</li>
+          <li><strong>Kurumsal ve Bireysel Çözümler:</strong> Ofis ekipmanlarından kişisel bilgisayarlara, güvenlik sistemlerinden tıbbi cihazlara kadar geniş bir yelpazede anakart ve PCB tamiri hizmeti sunuyoruz.</li>
+        </ul>
+      </div>
+      <div class="pcb-cta-section">
+        <h2>Elektronik Çözümünüz İçin Harekete Geçin</h2>
+        <p>Lütfen ihtiyacınıza uygun hizmeti seçin ve teklif alın:</p>
+        <div class="pcb-service-container">
+          <label class="pcb-service-card">
+            <div>
+              <h3>Anakart ve Devre Kartı Tamiri</h3>
+              <ol>
+                <li>Elektronik cihazlarda kullanılan devre kartlarının profesyonel tamir ve teslim işlemleri.</li>
+                <li>Tarım, endüstriyel otomasyon ve diğer sektörlere ait PCB'lerin yenilenmesi.</li>
+              </ol>
+            </div>
+            <div class="pcb-radio">
+              <input type="checkbox" name="pcbsecim" value="Anakart ve Devre Kartı Tamiri" id="secim1">
+              <span class="custom-radio"></span>
+            </div>
+          </label>
+          <label class="pcb-service-card">
+            <div>
+              <h3>Özel Elektronik Çözümler</h3>
+              <ol>
+                <li>Özelleştirilmiş devre kartlarının tasarımı ve entegrasyonu.</li>
+                <li>İthal edilen elektronik cihazların yeniden işlevsel hale getirilmesi.</li>
+              </ol>
+            </div>
+            <div class="pcb-radio">
+              <input type="checkbox" name="pcbsecim" value="Özel Elektronik Çözümler" id="secim2">
+              <span class="custom-radio"></span>
+            </div>
+          </label>
+        </div>
+        <div>
+          <button id="pcbTeklifBtn" class="cta-button">Teklif Alın</button>
+        </div>
+      </div>
+    </div>
+  </main>
+ <footer>
     <ul>
       <li>Eternal Automation System &copy; 2025</li>
-      <li><a href="#">GitHub</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">YouTube</a></li>
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">Linkedin</a></li>
+      <li>
+        <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+          <i class="fab fa-github"></i> GitHub
+        </a>
+      </li>
+      <li>
+        <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+          <i class="fab fa-twitter"></i> Twitter
+        </a>
+      </li>
+      <li>
+        <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+          <i class="fab fa-instagram"></i> Instagram
+        </a>
+      </li>
+      <li>
+        <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+          <i class="fab fa-linkedin"></i> LinkedIn
+        </a>
+      </li>
+      <br />
+      <li>
+        <div class="contact-info" style="display: flex; gap: 1.5rem;">
+          <a href="tel:+905340169531" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+            <i class="fas fa-phone"></i>
+            <span>+90 (534) 016 95 31</span>
+          </a>
+          <a href="mailto:nzmykr9@gmail.com" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+            <i class="fas fa-envelope"></i>
+            <span>nzmykr9@gmail.com</span>
+          </a>
+        </div>
+      </li>
     </ul>
   </footer>
+
+ <script>
+    function createPCBDots(containerId, count) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      // Mevcut noktaları temizle
+      container.innerHTML = '';
+
+      for (let i = 0; i < count; i++) {
+        const dot = document.createElement('div');
+        dot.className = 'pcb-dot';
+        dot.style.left = `${Math.random() * 95 + 2.5}%`;
+        dot.style.top = `${Math.random() * 95 + 2.5}%`;
+        container.appendChild(dot);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      createPCBDots('dots1', 15);
+      createPCBDots('dots2', 15);
+      createPCBDots('dots3', 15);
+    });
+
+document.getElementById('pcbTeklifBtn').addEventListener('click', function() {
+  const selected = Array.from(document.querySelectorAll('input[name="pcbsecim"]:checked'));
+  if (selected.length === 0) {
+    alert("Lütfen bir hizmet seçin.");
+    return;
+  }
+  const selections = selected.map(el => el.value);
+  const query = encodeURIComponent(selections.join(', '));
+  window.location.href = `İletişim.html?projeTuru=anakart&secim=${query}`;
+});
+  </script>
 
 </body>
 </html>

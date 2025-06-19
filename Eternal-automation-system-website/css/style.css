@@ -25,7 +25,7 @@ ul {
 
 /* Header/Navbar */
 .main-header {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -35,8 +35,10 @@ ul {
   align-items: center;
   justify-content: center;
   text-transform: uppercase;
-  padding: 20px 50px;
-  height: 140px;
+  padding-left: 50px;
+  padding-right: 50px;
+  height: 100px; /* Değiştirildi: 150px -> 100px */
+  padding-top: 20px; /* Logo için üst padding eklendi */
 }
 
 .logo {
@@ -45,6 +47,8 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-right: 60px;
+  margin-bottom: -40px;
 }
 
 .logo a img {
@@ -65,6 +69,7 @@ ul {
   padding: 0;
   margin: 0;
   gap: 30px; /* Menü öğeleri arasına boşluk ekledik */
+  margin-bottom: -60px;
 }
 
 .desktop-main-menu ul li {
@@ -74,7 +79,7 @@ ul {
 }
 
 .desktop-main-menu ul li a {
-  color: #9c824a;
+  color: #fff;
   text-decoration: none;
   font-family: 'Arial', sans-serif;
   font-weight: 500;
@@ -88,7 +93,7 @@ ul {
   left: 0;
   width: 100%;
   height: 1px;
-  background: #9c824a;
+  background: #fff;
   transform: scaleX(0);
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   transform-origin: right center;
@@ -109,30 +114,39 @@ section {
   background-repeat: no-repeat;
   background-size: cover;
   text-transform: uppercase;
+  margin-bottom: -40px;
 }
 
 .section-inner {
   position: absolute;
+  bottom: 100px;
+  max-width: 560px;
+  left: 50%; /* Yatayda ortalamak için */
+  transform: translateX(-50%); /* Yatayda tam ortalamak için */
+  width: 90%; /* Mobil uyumluluk için */
+  text-align: center; /* Metinleri ortalamak için */
+  padding: 0 20px; /* Kenarlardan boşluk */
+/*   position: absolute;
   bottom: 200px;
   left: 150px;
-  max-width: 560px;
+  max-width: 560px; */
 }
 
 .section-inner h4 {
-  font-size: 22px;
+  font-size: 20px;
   margin-bottom: 5px;
   font-weight: 300;
   animation: fadeInUp 0.5s ease-in-out;
-  color: #9c824a;
+  color: #fff;
 }
 
 .section-inner h2 {
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 700;
   margin-bottom: 20px;
   animation: fadeInUp 0.5s ease-in-out 0.2s;
   animation-fill-mode: both;
-  color: #9c824a;
+  color: #fff;
 }
 
 .section-inner a {
@@ -148,7 +162,7 @@ section {
   background-image: url('../img/section-b.jpeg');
 }
 .section-c {
-  background-image: url('../img/section-c.jpeg');
+  background-image: url('../img/section-c.webp');
 }
 .section-d {
   background-image: url('../img/section-d.webp');
@@ -167,8 +181,8 @@ section {
   min-width: 130px;
   padding: 15px 50px;
   margin-top: 10px;
-  border: 2px solid #c4a96a;
-  color: #c4a96a;
+  border: 2px solid #fff;
+  color: #fff;
   text-transform: uppercase;
   font-weight: bold;
   overflow: hidden;
@@ -185,7 +199,7 @@ section {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #c4a96a;
+  background-color: #fff;
 
   z-index: -1;
   transform: translateY(100%);
@@ -199,7 +213,7 @@ section {
 
 .scroll-arrow {
   position: absolute;
-  bottom: 50px;
+  bottom: 30px; /* Section-inner'dan biraz daha aşağıda */
   left: 50%;
   transform: translateX(-50%);
   animation: fadeBounce 5s infinite;
@@ -211,6 +225,7 @@ footer {
   padding: 55px 0;
   background-color: rgba(0, 0, 0, 0.7); /* tam saydam */
   color: rgba(0, 0, 0, 0.7); /* tam saydam */;
+  margin-top: 0px;
 }
 
 footer ul {
@@ -240,7 +255,7 @@ footer ul li a:hover {
 
 /* Hamburger Menu */
 .hamburger {
-  position: fixed;
+  position: absolute;
   top: 11px; /* Header yüksekliğine göre ayarlayın */
   right: 50px;
   z-index: 1001; /* Daha yüksek bir z-index verin */
@@ -262,7 +277,7 @@ footer ul li a:hover {
   background: #fff;
   transition: all 0.5s;
   margin: 1px 0;
-  background: #9c824a;
+  background: #fff;
 }
 
 .hamburger-middle {
@@ -327,7 +342,7 @@ footer ul li a:hover {
   transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
   margin: 0; /* Eğer varsa margin'leri sıfırla */
   padding: 0; /* Eğer varsa padding'leri sıfırla */
-  border-left: 1px solid #9c824a;
+  border-left: 1px solid #fff;
 }
 
 /* Bring menu from right */
@@ -358,7 +373,7 @@ footer ul li a:hover {
 }
 
 .mobile-main-menu ul li a {
-  color: #9c824a;
+  color: #fff;
   transition: color 0.6s;
 }
 
@@ -406,7 +421,7 @@ footer ul li a:hover {
   max-width: 500px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
   margin: auto;
-  margin-top: 130px;
+  margin-top: 80px;
   
 
 }
@@ -453,7 +468,7 @@ footer ul li a:hover {
 .contact-form .submit-btn {
   padding: 14px 30px;
   border: none;
-  background-color: #ff6347;
+  background-color: #9c824a;
   color: #fff;
   font-size: 18px;
   font-weight: 600;
@@ -464,7 +479,7 @@ footer ul li a:hover {
 }
 
 .contact-form .submit-btn:hover {
-  background-color: #e5533e;
+  background-color: #c5a86a;
 }
 
 /* Animations for form */
@@ -524,7 +539,7 @@ footer ul li a:hover {
       max-width: 1200px;
       margin: 10px auto;
       padding: 4rem 2rem;
-      margin-top: 50px;
+      margin-top: 30px;
       margin-bottom: 50px;
     }
 
@@ -610,11 +625,11 @@ footer ul li a:hover {
       width: 70px;
       height: 70px;
       opacity: 0.5;
-      filter: drop-shadow(0 0 8px rgba(255, 100, 100, 0.6)); /* Kırmızımsı parıltı */
+      filter: drop-shadow(0 0 8px #9c824a); /* Kırmızımsı parıltı */
       mix-blend-mode: screen;
       pointer-events: none;
       transition: transform 0.4s ease, opacity 0.4s ease;
-      color: #ff4d4d; /* Koyu pembe / kırmızı ton */
+      color: #9c824a; /* Koyu pembe / kırmızı ton */
       z-index: 0;
     }
 

@@ -11,22 +11,30 @@ body {
 .main-header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 5px 230px;
+  justify-content: center;
+  padding: 5px 460px;
   background-color: #000(0, 0, 0, 0.7);
-  position: sticky;
+  position: relative;
   top: 0;
   width: 100%;
   z-index: 1000;
   box-sizing: border-box;
+  height: 100px; /* Değiştirildi: 150px -> 100px */
+  padding-top: 20px; /* Logo için üst padding eklendi */
 }
-
+.main-header li{
+  color: #fff;
+}
+.main-header li a{
+  color: #fff;
+}
 /* Logo düzenleme */
 .logo1 {
   width: auto; /* Sabit genişlik yerine auto */
   height: auto;
-  margin-right: 0; /* Sağ boşluğu kaldır */
+  margin-right: 50px; /* Sağ boşluğu kaldır */
   padding: 0;
+  margin-bottom: -40px;
 }
 
 .logo1 img {
@@ -45,26 +53,29 @@ body {
 
 .desktop-main-menu ul {
   display: flex;
-  gap: 5px; /* Öğeler arası boşluk */
+  gap: 5px;
+  flex-direction: row;
   list-style: none;
   margin: 0;
   padding: 0;
   align-items: center;
+  flex-wrap: nowrap; /* wrap özelliğini kaldırın veya nowrap yapın */
+  margin-bottom: -60px;
 }
 
 /* Linkler */
 .desktop-main-menu ul li a {
-  color: #9c824a;
+  color: #fff;
   text-decoration: none;
   font-weight: 300;
   font-size: 16px;
   padding: 5px 10px;
   transition: color 0.3s ease;
-  white-space: nowrap; /* Metinlerin alt satıra inmesini engelle */
+  white-space: nowrap;
 }
 
 .desktop-main-menu ul li a:hover {
-  color: #9c824a;
+  color: #fff;
 }
 
 
@@ -102,7 +113,7 @@ footer {
 .generally-container {
   max-width: 1800px;
   margin: auto;
-  margin-top: 0;
+  margin-top: 50px;
   text-align: center;
 }
 

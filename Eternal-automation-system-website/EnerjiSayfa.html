@@ -5,50 +5,615 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="css/style.css" />
-  <link rel="stylesheet" href="css/ozelsayfalar.css" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
   <title>Eternal Automation System - Yenilenebilir Enerji</title>
-</head>
-<body>
+  <style>
+    /* Özel Enerji Sayfası Stilleri */
+    .energy-page {
+      max-width: 1200px;
+      margin: 80px auto 50px;
+      padding: 0 20px;
+      color: #fff;
+    }
+    
+    .energy-section {
+      position: relative;
+      margin-bottom: 80px;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(156, 130, 74, 0.2);
+    }
+    
+    .energy-title {
+      font-size: 2.5rem;
+      color: #9c824a;
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+    }
+    
+    .energy-title:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: #9c824a;
+      margin: 15px auto;
+    }
+    
+    .energy-content {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      margin-bottom: 30px;
+    }
+    
+    .turbine-container {
+      position: absolute;
+      width: 200px;
+      height: 350px;
+      transition: transform 0.5s ease-out;
+      z-index: 10;
+    }
+    
+    .turbine-left {
+      left: -220px;
+      top: 50px;
+    }
+    
+    .turbine-right {
+      right: -220px;
+      top: 50px;
+    }
+    
+    .turbine-shadow {
+      filter: drop-shadow(0 5px 15px rgba(156, 130, 74, 0.5));
+    }
+    
+    .energy-benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 50px;
+    }
+    
+    .benefit-card {
+      background: rgba(156, 130, 74, 0.1);
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid rgba(156, 130, 74, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
 
+
+    
+    .benefit-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(156, 130, 74, 0.3);
+    }
+    
+    .benefit-card h3 {
+      color: #9c824a;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    /* Yeni eklenen proje başvuru bölümü stilleri */
+    .energy-block {
+      max-width: 1200px;
+      margin: 0 auto 80px;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(156, 130, 74, 0.2);
+      position: relative; /* Butonun pozisyonlandırılması için */
+      padding-bottom: 80px;
+    }
+    
+    .energy-block h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      position: relative;
+    }
+    
+    .energy-block h2:after {
+      content: '';
+      display: block;
+      width: 100px;
+      height: 3px;
+      background: #9c824a;
+      margin: 15px auto;
+    }
+    
+    .service-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+      padding: 15px; 
+      box-sizing: border-box;
+    }
+    
+    .service-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: center;
+      height: 100%;
+      background: rgba(156, 130, 74, 0.1);
+      padding: 25px;
+      border-radius: 10px;
+      border: 1px solid rgba(156, 130, 74, 0.3);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(156, 130, 74, 0.2);
+    }
+    
+    .service-content h3 {
+      color: #9c824a;
+      margin-bottom: 15px;
+      font-size: 1.3rem;
+    }
+    
+    .service-content ol {
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    
+    .service-content li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    
+    .radio-area {
+      margin-top: auto;
+      padding-top: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-top: 1px solid rgba(156, 130, 74, 0.2);
+    }
+    
+    .radio-area input[type="checkbox"] {
+      opacity: 0;
+      position: absolute;
+    }
+    
+    .custom-radio {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      border: 2px solid #9c824a;
+      border-radius: 50%;
+      position: relative;
+      margin-left: 10px;
+    }
+    
+    .radio-area input[type="checkbox"]:checked + .custom-radio::after {
+      content: '';
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background: #9c824a;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+    }
+    
+    .cta-button {
+      background: #9c824a;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(156, 130, 74, 0.4);
+    }
+    
+    .cta-button:hover {
+      background: #b59856;
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(156, 130, 74, 0.5);
+    }
+
+    
+    @media (max-width: 1200px) {
+      .turbine-container {
+        display: none;
+      }
+      
+      .energy-section, .energy-block {
+        padding: 30px 20px;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .energy-page {
+        margin-top: 120px;
+      }
+      
+      .energy-title, .energy-block h2 {
+        font-size: 2rem;
+      }
+      
+      .energy-content {
+        font-size: 1rem;
+      }
+      
+      .service-container {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  grid-column: 1 / -1; /* Tüm grid sütunlarını kaplamasını sağlar */
+}
+
+/* Veya mevcut .service-container içindeki direkt div için */
+.service-container > div {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20px;
+  grid-column: 1 / -1;
+}
+
+  </style>
+</head>
+
+<body>
   <!-- Header -->
   <header class="main-header">
-    <div class="logo">
+        <div class="logo">
       <a href="index.html">
-        <img src="img/logo.png" alt="logo" />
+        <img src="img/logo.webp" alt="logo" />
       </a>
     </div>
     <nav class="desktop-main-menu">
       <ul>
-        <li><a href="index.html">ANASAYFA</a></li>
+        <li><a href="giris.html">ANASAYFA</a></li>
+        <li><a href="index.html">ÜRÜNLERİMİZ</a></li>
         <li><a href="Hakkımızda.html">HAKKIMIZDA</a></li>
-        <li><a href="Ürünlerimiz.php">ÜRÜNLERİMİZ</a></li>
+        <li><a href="Ürünlerimiz.php">REFERANSLARIMIZ</a></li>
+        <li><a href="#">BELGELERİMİZ</a></li>
         <li><a href="İletişim.html">İLETİŞİM</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- Enerji Sayfası İçeriği -->
+  <div class="energy-page">
+    <section class="energy-section">
+      <div class="turbine-container turbine-left">
+        <svg class="turbine-svg" width="200" height="350" viewBox="0 0 200 350">
+          <!-- Turbine Tower -->
+          <path d="M100 350 L90 170 L110 170 Z" fill="#555" stroke="#777" stroke-width="2"/>
+          <rect x="95" y="170" width="10" height="30" fill="#666" rx="2" ry="2"/>
+          
+          <!-- Nacelle -->
+          <rect x="80" y="150" width="40" height="20" fill="#888" rx="3" ry="3"/>
+          <circle cx="100" cy="160" r="5" fill="#555"/>
+          
+          <!-- Blades (will be rotated) -->
+          <g id="blades" transform="rotate(0, 100, 160)">
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5"/>
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5" transform="rotate(120, 100, 160)"/>
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5" transform="rotate(240, 100, 160)"/>
+          </g>
+          
+          <!-- Details -->
+          <circle cx="100" cy="170" r="3" fill="#9c824a"/>
+          <line x1="100" y1="170" x2="100" y2="180" stroke="#9c824a" stroke-width="2"/>
+        </svg>
+      </div>
+      
+      
+      <h1 class="energy-title">YENİLENEBİLİR ENERJİ ÇÖZÜMLERİ</h1>
+      <div class="energy-content">
+        <p>Eternal Automation System olarak, sürdürülebilir bir gelecek için yenilenebilir enerji çözümleri sunuyoruz. Rüzgar, güneş ve hidroelektrik enerji sistemleriyle hem çevre dostu hem de yüksek verimli enerji üretimi sağlıyoruz.</p>
+        
+        <p>Modern teknolojilerle donatılmış sistemlerimiz, enerji ihtiyacınızı karşılarken aynı zamanda doğal kaynakların korunmasına da katkı sağlar. Uzman mühendis ekibimiz, her projeye özel çözümler üreterek maksimum verimlilik garantisi sunar.</p>
+      </div>
+      
+      <div class="energy-benefits">
+        <div class="benefit-card">
+          <h3>Çevre Dostu</h3>
+          <p>Yenilenebilir enerji sistemleri, karbon ayak izinizi azaltarak çevreye duyarlı bir işletme olmanızı sağlar.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Uzun Vadeli Tasarruf</h3>
+          <p>Yüksek ilk yatırım maliyetine rağmen, uzun vadede enerji maliyetlerinizde önemli tasarruf sağlarsınız.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Yüksek Verimlilik</h3>
+          <p>Son teknoloji ürünlerimizle en yüksek enerji verimliliğini elde edersiniz.</p>
+    </section>
+    
+    <section class="energy-section">    
+      <div class="turbine-container turbine-right">
+        <svg class="turbine-svg" width="200" height="350" viewBox="0 0 200 350">
+          <!-- Turbine Tower -->
+          <path d="M100 350 L90 170 L110 170 Z" fill="#555" stroke="#777" stroke-width="2"/>
+          <rect x="95" y="170" width="10" height="30" fill="#666" rx="2" ry="2"/>
+          
+          <!-- Nacelle -->
+          <rect x="80" y="150" width="40" height="20" fill="#888" rx="3" ry="3"/>
+          <circle cx="100" cy="160" r="5" fill="#555"/>
+          
+          <!-- Blades (will be rotated) -->
+          <g id="blades" transform="rotate(0, 100, 160)">
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5"/>
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5" transform="rotate(120, 100, 160)"/>
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5" transform="rotate(240, 100, 160)"/>
+          </g>
+          
+          <!-- Details -->
+          <circle cx="100" cy="170" r="3" fill="#9c824a"/>
+          <line x1="100" y1="170" x2="100" y2="180" stroke="#9c824a" stroke-width="2"/>
+        </svg>
+      </div>
+      <h2 class="energy-title">RÜZGAR ENERJİSİ TEKNOLOJİLERİ</h2>
+      <div class="energy-content">
+        <p>Rüzgar enerjisi, temiz ve sürdürülebilir enerji kaynakları arasında en hızlı büyüyen sektörlerden biridir. Eternal Automation System olarak, hem büyük ölçekli rüzgar çiftlikleri hem de küçük ölçekli bireysel sistemler için çözümler sunuyoruz.</p>
+        
+        <p>Rüzgar türbinlerimiz, yüksek verimli kanat tasarımları ve akıllı kontrol sistemleri sayesinde düşük rüzgar hızlarında bile enerji üretebilir. Sistemlerimiz, uzaktan izleme ve bakım olanaklarıyla 7/24 takip edilebilir durumdadır.</p>
+      </div>
+      
+      <div class="energy-benefits">
+        <div class="benefit-card">
+          <h3>Yerli Üretim</h3>
+          <p>Türbinlerimizin %85'inden fazlası yerli üretimdir, bu da bakım ve yedek parça süreçlerini kolaylaştırır.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Akıllı Kontrol</h3>
+          <p>Otomatik yön bulma ve hız ayarlama sistemleri sayesinde maksimum enerji üretimi sağlanır.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Uzun Ömür</h3>
+          <p>Kaliteli malzemeler ve sağlam tasarım sayesinde türbinlerimizin ömrü 25+ yıldır.</p>
+        </div>
+      </div>
+    </section>
+    
+    <section class="energy-section">
+            <div class="turbine-container turbine-left">
+        <svg class="turbine-svg" width="200" height="350" viewBox="0 0 200 350">
+          <!-- Turbine Tower -->
+          <path d="M100 350 L90 170 L110 170 Z" fill="#555" stroke="#777" stroke-width="2"/>
+          <rect x="95" y="170" width="10" height="30" fill="#666" rx="2" ry="2"/>
+          
+          <!-- Nacelle -->
+          <rect x="80" y="150" width="40" height="20" fill="#888" rx="3" ry="3"/>
+          <circle cx="100" cy="160" r="5" fill="#555"/>
+          
+          <!-- Blades (will be rotated) -->
+          <g id="blades" transform="rotate(0, 100, 160)">
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5"/>
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5" transform="rotate(120, 100, 160)"/>
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5" transform="rotate(240, 100, 160)"/>
+          </g>
+          
+          <!-- Details -->
+          <circle cx="100" cy="170" r="3" fill="#9c824a"/>
+          <line x1="100" y1="170" x2="100" y2="180" stroke="#9c824a" stroke-width="2"/>
+        </svg>
+      </div>
+    
+      <h2 class="energy-title">GÜNEŞ ENERJİSİ SİSTEMLERİ</h2>
+      <div class="energy-content">
+        <p>Güneş enerjisi, en yaygın kullanılan yenilenebilir enerji kaynaklarından biridir. Eternal Automation System, fotovoltaik panel sistemleriyle hem elektrik üretimi hem de ısıtma/soğutma çözümleri sunmaktadır.</p>
+        
+        <p>Yüksek verimli güneş panellerimiz, düşük ışık koşullarında bile enerji üretebilir. Sistemlerimiz, şebekeye bağlı (on-grid) veya şebekeden bağımsız (off-grid) çalışabilme esnekliğine sahiptir.</p>
+      </div>
+      
+      <div class="energy-benefits">
+        <div class="benefit-card">
+          <h3>Yüksek Verim</h3>
+          <p>%22'ye varan verimlilikle çalışan premium güneş panelleri sunuyoruz.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Esnek Kurulum</h3>
+          <p>Çatı, cephe veya araziye uygun farklı montaj seçenekleri mevcuttur.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Garanti</h3>
+          <p>Panellerimiz için 25 yıl lineer performans garantisi veriyoruz.</p>
+        </div>
+      </div>
+    </section>
 
- <main>
-  <div class="generally-container">
-    <h1>Yakında...</h1>
+    <!-- Yeni eklenen proje başvuru bölümü -->
+    <section class="energy-block">     
+     <div class="turbine-container turbine-right">
+        <svg class="turbine-svg" width="200" height="350" viewBox="0 0 200 350">
+          <!-- Turbine Tower -->
+          <path d="M100 350 L90 170 L110 170 Z" fill="#555" stroke="#777" stroke-width="2"/>
+          <rect x="95" y="170" width="10" height="30" fill="#666" rx="2" ry="2"/>
+          
+          <!-- Nacelle -->
+          <rect x="80" y="150" width="40" height="20" fill="#888" rx="3" ry="3"/>
+          <circle cx="100" cy="160" r="5" fill="#555"/>
+          
+          <!-- Blades (will be rotated) -->
+          <g id="blades" transform="rotate(0, 100, 160)">
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5"/>
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5" transform="rotate(120, 100, 160)"/>
+            <path d="M100 160 L180 155 L180 165 Z" fill="#aaa" stroke="#888" stroke-width="0.5" transform="rotate(240, 100, 160)"/>
+          </g>
+          
+          <!-- Details -->
+          <circle cx="100" cy="170" r="3" fill="#9c824a"/>
+          <line x1="100" y1="170" x2="100" y2="180" stroke="#9c824a" stroke-width="2"/>
+        </svg>
+      </div>
+      <h2 class="energy-title">YENİLENEBİLİR ENERJİ PROJENİZ İÇİN HAREKETE GEÇİN</h2>
+      <p class="energy-content" style="text-align:center;">Aşağıdaki seçeneklerden birini seçerek bizimle iletişime geçin. Projenizi birlikte şekillendirelim.</p>
 
+      <div class="service-container" style="align-items: center;">     
+
+        <label class="service-card" style="margin-left: auto;">
+          <div class="service-content">
+            <h3>Enerji Tarlaları</h3>
+            <ol>
+              <li>Büyük ölçekli güneş enerjisi tarlalarının tasarımı ve kurulumu.</li>
+              <li>Rüzgar türbini tarlalarının enerji üretimine uygun inşası.</li>
+            </ol>
+          </div>
+          <div class="radio-area">
+            <input type="checkbox" name="secim" value="Enerji Tarlaları" />
+            <span class="custom-radio"></span>
+          </div>
+        </label>
+
+        <label class="service-card">
+          <div class="service-content">
+            <h3>Enerji Çözümleri</h3>
+            <ol>
+              <li>Endüstriyel projeler için güneş/rüzgar enerji entegrasyonu.</li>
+              <li>Tarımsal uygulamalar için sürdürülebilir enerji planlaması.</li>
+            </ol>
+          </div>
+          <div class="radio-area">
+            <input type="checkbox" name="secim" value="Enerji Çözümleri" />
+            <span class="custom-radio"></span>
+          </div>
+        </label>
+     
+        <div>
+          <button id="iletisimBtn" class="cta-button">TEKLİF ALIN</button>
+        </div>
+
+
+      </div>
+    </section>
   </div>
 
+  <script>
+    // Rüzgar türbini animasyonu
+    document.addEventListener('DOMContentLoaded', function() {
+      const turbineBlades = document.querySelectorAll('#blades');
+      let rotation = 0;
+      let lastScrollPosition = window.scrollY;
+      let scrollSpeed = 0;
+      let animationId;
+      
+      // Scroll hızını takip et
+      window.addEventListener('scroll', function() {
+        const currentScrollPosition = window.scrollY;
+        scrollSpeed = Math.min(Math.abs(currentScrollPosition - lastScrollPosition) / 5, 5);
+        lastScrollPosition = currentScrollPosition;
+      });
+      
+      // Animasyon fonksiyonu
+      function animateTurbines() {
+        rotation += 0.5 + scrollSpeed;
+        if (rotation >= 360) rotation = 0;
+        
+        turbineBlades.forEach(blades => {
+          blades.setAttribute('transform', `rotate(${rotation}, 100, 160)`);
+        });
+        
+        animationId = requestAnimationFrame(animateTurbines);
+      }
+      
+      // Animasyonu başlat
+      animateTurbines();
+      
+      // Sayfa yüklendiğinde animasyonları tetikle
+      document.querySelectorAll('.energy-section, .energy-block').forEach((section, index) => {
+        setTimeout(() => {
+          section.style.opacity = '1';
+          section.style.transform = 'translateY(0)';
+        }, index * 200);
+      });
+      
+      // Sayfadan çıkarken animasyonu durdur
+      window.addEventListener('beforeunload', function() {
+        cancelAnimationFrame(animationId);
+      });
+    });
 
- </main>
+    document.getElementById('iletisimBtn').addEventListener('click', function() {
+      const selected = [...document.querySelectorAll('input[name="secim"]:checked')];
+      if (selected.length === 0) {
+        alert("Lütfen en az bir hizmet seçin.");
+        return;
+      }
+      const secimler = selected.map(cb => encodeURIComponent(cb.value)).join('%0A');
+      window.location.href = `İletişim.html?projeTuru=yenilenebilir&secim=${secimler}`;
+    });
+  </script>
 
   <!-- Footer -->
   <footer>
     <ul>
       <li>Eternal Automation System &copy; 2025</li>
-      <li><a href="#">GitHub</a></li>
-      <li><a href="#">Twitter</a></li>
-      <li><a href="#">YouTube</a></li>
-      <li><a href="#">Instagram</a></li>
-      <li><a href="#">Linkedin</a></li>
-    </ul>
+      <li>
+        <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+          </svg>
+          GitHub
+        </a>
+      </li>
+      
+      <li>
+        <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+          </svg>
+          Twitter
+        </a>
+      </li>
+      
+      <li>
+        <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+          </svg>
+          Instagram
+        </a>
+      </li>
+      
+      <li>
+        <a href="#" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+          </svg>
+          LinkedIn
+        </a>
+      </li>
+      <br>
+      <li>       
+        <div class="contact-info" style="display: flex; gap: 1.5rem;">
+            <a href="tel:+905340169531" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+                <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+              </svg>
+              <span>+90 (534) 016 95 31</span>
+            </a>
+            
+            <a href="mailto:nzmykr9@gmail.com" style="display: flex; align-items: center; gap: 0.5rem; color: aliceblue; text-decoration: none;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757Zm3.436-.586L16 11.801V4.697l-5.803 3.546Z"/>
+              </svg>
+              <span>nzmykr9@gmail.com</span>
+            </a>
+        </div>
+      </li>
+    </ul>          
   </footer>
-
 </body>
 </html>
